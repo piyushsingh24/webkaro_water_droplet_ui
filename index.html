@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rainy Notes — write on the window</title>
+<meta name="description" content="A shader-rendered rainy window you can write notes on." />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="panel-closed">
+<canvas id="pane"></canvas>
+
+<div id="notes">
+  <div id="sheet" contenteditable="plaintext-only" spellcheck="false" data-ph="Write here." role="textbox" aria-multiline="true" aria-label="Note"></div>
+</div>
+
+<div id="brand">
+  <h1>Webkaro</h1>
+  <p>Your Single partner for your Digital presence</p>
+</div>
+
+<button id="open" title="Show controls (P)" aria-label="Show controls">≡</button>
+
+<aside id="panel">
+  <div class="p-head">
+    <h1>Controls</h1>
+    <span class="sub">WebGL</span>
+    <button class="x" id="close" title="Hide panel (P)" aria-label="Hide panel">×</button>
+  </div>
+  <div class="p-body" id="p-body">
+    <!-- Effects -->
+    <section class="acc open" id="acc-effects">
+      <button class="acc-h" aria-expanded="true" aria-controls="c-effects">
+        <span class="nm">Effects</span>
+        <span class="hint">rain · glass · scene</span>
+        <span class="chev"></span>
+      </button>
+      <div class="acc-c" id="c-effects">
+        <div class="sec">
+          <h2>Weather</h2>
+          <div class="chips" id="preset-row"></div>
+        </div>
+        <div class="sec">
+          <h2>Behind the glass</h2>
+          <div class="bgs" id="bgs"></div>
+          <input type="file" id="file" accept="image/*" hidden />
+        </div>
+        <div id="effect-rows"></div>
+        <div class="sec act">
+          <button class="wide" id="reset">Reset effects</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notes -->
+    <section class="acc" id="acc-files">
+      <button class="acc-h" aria-expanded="false" aria-controls="c-files">
+        <span class="nm">Notes</span>
+        <span class="hint" id="files-count">0 notes</span>
+        <span class="chev"></span>
+      </button>
+      <div class="acc-c" id="c-files">
+        <div class="sec">
+          <div class="files" id="files"></div>
+          <button class="wide" id="new-note">+ New note</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Text -->
+    <section class="acc" id="acc-text">
+      <button class="acc-h" aria-expanded="false" aria-controls="c-text">
+        <span class="nm">Text</span>
+        <span class="hint">size · colour</span>
+        <span class="chev"></span>
+      </button>
+      <div class="acc-c" id="c-text">
+        <div id="text-rows"></div>
+        <div class="sec">
+          <h2>Colour</h2>
+          <div class="swatches" id="swatches"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="p-foot">
+    <span id="saved">saved</span>
+    <span class="fps" id="fps">— fps</span>
+  </div>
+</aside>
+
+<div id="gallery" aria-hidden="true">
+  <div class="g-head">
+    <h2>All notes</h2>
+    <span id="g-count">0 notes</span>
+    <button id="g-close" aria-label="Close">×</button>
+  </div>
+  <div class="cards" id="cards"></div>
+</div>
+
+<div id="drop">drop an image to put it behind the rain</div>
+
+<div id="fail">
+  <h2>This page needs WebGL2</h2>
+  <p id="fail-msg"></p>
+  <p>Try a current Chrome, Safari or Firefox with hardware acceleration switched on.</p>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
