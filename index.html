@@ -3,23 +3,37 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rainy Notes — write on the window</title>
-<meta name="description" content="A shader-rendered rainy window you can write notes on." />
+<title>WebKaro — Web Design Agency in Delhi | Websites, Software & SEO</title>
+<meta name="description" content="WebKaro builds fast, SEO-ready websites, custom software & SaaS in Delhi. 250+ projects, 40+ clients, 4.9/5 rated. Start your project today." />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="WebKaro" />
+<meta name="theme-color" content="#05090e" />
+<meta name="geo.region" content="IN-DL" />
+<meta name="geo.placename" content="Delhi, India" />
+<link rel="canonical" href="https://webkaro.co.in/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="WebKaro" />
+<meta property="og:title" content="WebKaro — Digital Experiences That Drive Real Growth" />
+<meta property="og:description" content="We design fast, SEO-ready websites, SaaS platforms & custom software. 250+ projects, 40+ clients. Partner with WebKaro." />
+<meta property="og:url" content="https://webkaro.co.in/" />
+<meta property="og:image" content="https://webkaro.co.in/assets/tokyo-evening.jpg" />
+<meta property="og:image:alt" content="WebKaro rainy window demo" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="WebKaro — Web Design Agency in Delhi" />
+<meta name="twitter:description" content="Fast, SEO-ready websites, custom software & SaaS. 250+ projects, 4.9/5 rated." />
+<meta name="twitter:image" content="https://webkaro.co.in/assets/tokyo-evening.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="apple-touch-icon" href="favicon.svg" />
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<link rel="preconnect" href="https://webkaro.in" />
 <link rel="stylesheet" href="style.css" />
-</head>
-<body class="panel-closed">
-<canvas id="pane"></canvas>
-
-<div id="notes">
-  <div id="sheet" contenteditable="plaintext-only" spellcheck="false" data-ph="Write here." role="textbox" aria-multiline="true" aria-label="Note"></div>
-</div>
-
-<div id="brand">
-  <h1>Webkaro</h1>
-  <p>Your Single partner for your Digital presence</p>
-  <a id="main-site" href="https://webkaro.in" target="_blank" rel="noopener">Main Website</a>
-</div>
-
 <style>
   #brand { pointer-events: none; }
   #brand #main-site {
@@ -45,13 +59,93 @@
     transform: translateY(-1px);
     box-shadow: 0 6px 22px rgba(0,0,0,.45);
   }
+  .p-head .p-title { font-size: 12.5px; font-weight: 500; letter-spacing: .01em; }
+  #site-foot {
+    position: fixed; z-index: 4; left: 0; right: 0; bottom: 0;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px;
+    padding: 8px 22px;
+    font-size: 11.5px; color: rgba(233,240,246,.62);
+    background: rgba(5,9,14,.55);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+  #site-foot nav { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  #site-foot a { color: rgba(233,240,246,.75); text-decoration: none; }
+  #site-foot a:hover { color: #f0a557; text-decoration: underline; }
+  #site-foot .nap { margin-left: auto; font-size: 11px; color: rgba(233,240,246,.45); }
+  #site-foot details { flex-basis: 100%; font-size: 11.5px; line-height: 1.6; }
+  #site-foot summary { cursor: pointer; color: rgba(233,240,246,.75); }
+  #site-foot details p { margin-top: 6px; max-width: 90ch; color: rgba(233,240,246,.62); }
+  body.hide-ui #site-foot { opacity: 0; pointer-events: none; }
+  #site-foot { transition: opacity .3s cubic-bezier(.22,.7,.2,1); }
+  @media(max-width:720px){ #site-foot .nap { margin-left: 0; } #site-foot{ padding: 8px 16px; } }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://webkaro.in/#org",
+      "name": "WebKaro",
+      "url": "https://webkaro.in/",
+      "logo": "https://webkaro.in/logo.png",
+      "description": "Web design agency in Delhi building fast, SEO-ready websites, SaaS platforms and custom software.",
+      "email": "info@webkaro.in",
+      "telephone": "+91-70489-03201",
+      "address": { "@type": "PostalAddress", "addressLocality": "Delhi", "addressCountry": "IN" },
+      "sameAs": [
+        "https://www.facebook.com/webkaroin",
+        "https://linkedin.com/company/webkaro",
+        "https://github.com/webkaro",
+        "https://instagram.com/webkaro_"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://webkaro.co.in/#site",
+      "url": "https://webkaro.co.in/",
+      "name": "WebKaro",
+      "publisher": { "@id": "https://webkaro.in/#org" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What does WebKaro build?", "acceptedAnswer": { "@type": "Answer", "text": "WebKaro designs business websites, landing pages, e-commerce stores, custom CRM, portals, and SaaS platforms using React, Next.js, Node.js, Laravel and more." } },
+        { "@type": "Question", "name": "How much does a project cost?", "acceptedAnswer": { "@type": "Answer", "text": "Every project is scoped individually. Contact WebKaro for a free consultation and a custom proposal within 24 hours with transparent pricing." } },
+        { "@type": "Question", "name": "Do WebKaro websites rank on Google?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Technical SEO — fast load times, semantic HTML, meta tags, sitemaps and structured data — is baked into every build." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="panel-closed">
+<canvas id="pane"></canvas>
+
+<header id="brand">
+  <h1>WebKaro — Web Design Agency in Delhi</h1>
+  <p>Your single partner for your digital presence</p>
+  <a id="main-site" href="https://webkaro.in" target="_blank" rel="noopener">Main Website</a>
+</header>
+
+<main id="notes">
+  <div id="sheet" contenteditable="plaintext-only" spellcheck="false" data-ph="Write here." role="textbox" aria-multiline="true" aria-label="Note"></div>
+</main>
+
+<noscript>
+  <section>
+    <h2>WebKaro — Digital Experiences That Drive Real Growth</h2>
+    <p>WebKaro is a web design agency in Delhi building fast, SEO-ready business websites, landing pages, e-commerce stores, custom software, CRM systems and SaaS platforms. 250+ projects, 40+ clients, 4.9/5 rated. Visit our <a href="https://webkaro.in">main website</a>, explore <a href="https://webkaro.in/services">services</a>, view <a href="https://webkaro.in/projects">case studies</a> or <a href="https://webkaro.in/contact">start your project</a>.</p>
+  </section>
+</noscript>
 
 <button id="open" title="Show controls (P)" aria-label="Show controls">≡</button>
 
-<aside id="panel">
+<aside id="panel" aria-label="Rain effect controls">
   <div class="p-head">
-    <h1>Controls</h1>
+    <p class="p-title">Controls</p>
     <span class="sub">WebGL</span>
     <button class="x" id="close" title="Hide panel (P)" aria-label="Hide panel">×</button>
   </div>
@@ -127,6 +221,20 @@
 </div>
 
 <div id="drop">drop an image to put it behind the rain</div>
+
+<footer id="site-foot">
+  <nav aria-label="WebKaro links">
+    <a href="https://webkaro.in" rel="noopener">WebKaro</a>
+    <a href="https://webkaro.in/services" rel="noopener">Services</a>
+    <a href="https://webkaro.in/projects" rel="noopener">Work</a>
+    <a href="https://webkaro.in/contact" rel="noopener">Start Project</a>
+  </nav>
+  <span class="nap">Delhi, India · <a href="mailto:info@webkaro.in">info@webkaro.in</a> · <a href="tel:+917048903201">+91 70489 03201</a></span>
+  <details>
+    <summary>About this interactive demo by WebKaro, web design agency in Delhi</summary>
+    <p>WebKaro partners with startups and growing businesses to design fast, SEO-ready <a href="https://webkaro.in/services">business websites, landing pages, e-commerce stores</a>, <a href="https://webkaro.in/services">custom CRM, portals and SaaS platforms</a>. 250+ projects, 40+ clients, 4.9/5 rated. This rainy-window page is an interactive WebGL demo — explore our <a href="https://webkaro.in/projects">case studies</a> or <a href="https://webkaro.in/contact">get a free quote in 24 hours</a>.</p>
+  </details>
+</footer>
 
 <div id="fail">
   <h2>This page needs WebGL2</h2>
