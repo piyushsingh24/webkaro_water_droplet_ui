@@ -571,14 +571,11 @@ function Lm(w=1800,h=1150){ const {c,x}=wd(w,h), r=Ld(770311), g1=x.createLinear
 
 // Note helpers
 function qd(){ return {id:Math.random().toString(36).slice(2,9), text:"", updated:Date.now()}; }
-const Rm = `October 12 — rain
-Quarterly review done before noon
-Ramen by the station, same seat
-Rain started around three
-Streetlights stretched in the water
-Bought an umbrella and coffee
-Closed the window, listened to it
-Early start — send the proposal`;
+const Rm = `WebKaro — Digital Experiences That Drive Real Growth
+We partner with startups & growing businesses to design websites, SaaS platforms & digital products that create measurable impact
+250+ Projects | 40+ Clients | 4.9/5 Rating
+Website Design · Custom Software · Growth
+Visit our main website — tap the button`;
 function Nm(){ return {id:Math.random().toString(36).slice(2,9), text:Rm, updated:Date.now()}; }
 function Cm(t){ const line=t.split("\n").find(s=>s.trim()); if(!line) return "Untitled"; const m=line.trim(); return m.length>30? m.slice(0,29)+"…":m; }
 function Hm(t){ const lines=t.split("\n"), i=lines.findIndex(s=>s.trim()); return i<0?"": lines.slice(i+1).join("\n").replace(/^\n+/,""); }

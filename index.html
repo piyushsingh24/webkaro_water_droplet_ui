@@ -17,7 +17,35 @@
 <div id="brand">
   <h1>Webkaro</h1>
   <p>Your Single partner for your Digital presence</p>
+  <a id="main-site" href="https://webkaro.in" target="_blank" rel="noopener">Main Website</a>
 </div>
+
+<style>
+  #brand { pointer-events: none; }
+  #brand #main-site {
+    pointer-events: auto;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 7px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: #14100a;
+    background: #f0a557;
+    border: 1px solid #f0a557;
+    border-radius: 99px;
+    text-decoration: none;
+    text-shadow: none;
+    cursor: pointer;
+    transition: transform .16s cubic-bezier(.22,.7,.2,1), background .16s, box-shadow .16s;
+    box-shadow: 0 4px 18px rgba(0,0,0,.35);
+  }
+  #brand #main-site:hover {
+    background: #ffb86b;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(0,0,0,.45);
+  }
+</style>
 
 <button id="open" title="Show controls (P)" aria-label="Show controls">≡</button>
 
